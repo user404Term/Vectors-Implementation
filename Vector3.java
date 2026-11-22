@@ -1,7 +1,7 @@
 
 
 
-	import java.lang.Object;
+	
 
 	public class Vector3{
 		
@@ -68,8 +68,34 @@
 			return u;
 		}
 
+
+		// Dot Product
+		
+		public double dotProduct(Vector3 v){
+			return ( (v.getX() * this.x) +
+				 (v.getY() * this.y) +
+			         (v.getZ() * this.z) );
+		}
+		
+		// Angle between Vectors
+		public double angleBetweenVectors(Vector3 v){
+			if(magnitude() == 0 || v.magnitude() == 0){
+			throw new IllegalArgumentException("Angle undefined for zero vector");
+			} else {
+			cosTheta = Math.max(-1.0, Math.min(1.0, cosTheta));
+			return toDegrees(Math.acos(dotProduct(v) / (magnitude() * v.magnitude())));
+			}
+		}	
 		
 
+		
+
+		// Converting radians into degrees manually
+		public double toDegrees(double radians){
+			return radians * (180 / Math.PI);
+		}
+
+		
 			
 		// Gets Vector Components
 

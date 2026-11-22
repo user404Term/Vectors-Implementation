@@ -80,7 +80,9 @@
 			System.out.println("3. Scaler Multiply ");
 			System.out.println("4. Negate ");
 			System.out.println("5. Magnitude ");
-			System.out.println("6. Exit ");
+			System.out.println("6. Dot Product");
+			System.out.println("11. Get New Vectors");
+			System.out.println("12. Exit ");
 
 			System.out.println("\n");
 
@@ -139,8 +141,10 @@
 						break;
 
 					case 4: 
-						System.out.print("Enter the vector you want to multiply the number: (A or B): ");
-						vector = input.next().charAt(0); if(vector ==  'A'){ System.out.println(" \033[1m Resutl: " + vA.negate() + "\033[0m");
+						System.out.print("Enter the vector you want to negate the number: (A or B): ");
+						vector = input.next().charAt(0); 
+						if(vector ==  'A'){ 
+						System.out.println(" \033[1m Resutl: " + vA.negate() + "\033[0m");
 						} else if ( vector == 'B'){
 							System.out.println("\n \033[1mResult: " + vB.negate() + "\033[0m");
 						} else {
@@ -167,6 +171,22 @@
 						break;
 
 					case 6:
+						System.out.print("The Dot Product of Vector A and Vector B is: " + vA.dotProduct(vB));
+						System.out.println("\n \n");
+						break;
+
+					case 7:
+						System.out.println("\n \033[1m Result: \033[0m" + 
+						"Angle between vector A and B is " + vA.angleBetweenVectors(vB));
+						System.out.println("\n \n");
+						break;
+					
+					// Gets Vectors again get new Vectors
+					case 11:
+						getVectors();
+						break;
+
+					case 12:
 						loopRuns = false;
 						break;
 
