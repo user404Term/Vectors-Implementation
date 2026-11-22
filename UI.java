@@ -81,6 +81,8 @@
 			System.out.println("4. Negate ");
 			System.out.println("5. Magnitude ");
 			System.out.println("6. Dot Product");
+			System.out.println("7. Angle Between Vectors");
+			System.out.println("8.Directinal Angles");
 			System.out.println("11. Get New Vectors");
 			System.out.println("12. Exit ");
 
@@ -181,6 +183,30 @@
 						System.out.println("\n \n");
 						break;
 					
+					// Angles Between Vectors
+					case 8:
+						System.out.print("Select the vector you want to find the directional angles of that Vector(A or B): ");
+						vector = input.next().charAt(0);
+						double angles[] = new double[3];
+						if(vector ==  'A'){
+							angles = vA.directionalAngles();
+							System.out.println("\n \033[1m Result: \033[0m" + "\n" + 
+							"Alpha: " + angles[0] + "\n" +
+							"Beta: " + angles[1] + "\n" +
+							"Gamma: " + angles[2]);
+						} else if ( vector == 'B'){
+							angles = vB.directionalAngles();
+							System.out.println("\n \033[1m Result: \033[0m" + "\n" + 
+							"Alpha: " + angles[0] + "\n" +
+							"Beta: " + angles[1] + "\n" +
+							"Gamma: " + angles[2]);
+						} else {
+							System.out.println("Invalid input enter A or B");
+						}
+						
+						System.out.println("\n \n");
+						break;
+	
 					// Gets Vectors again get new Vectors
 					case 11:
 						getVectors();

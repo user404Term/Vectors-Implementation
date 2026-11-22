@@ -82,9 +82,39 @@
 			if(magnitude() == 0 || v.magnitude() == 0){
 			throw new IllegalArgumentException("Angle undefined for zero vector");
 			} else {
+			double cosTheta = dotProduct(v) / (magnitude() * v.magnitude());
 			cosTheta = Math.max(-1.0, Math.min(1.0, cosTheta));
-			return toDegrees(Math.acos(dotProduct(v) / (magnitude() * v.magnitude())));
+			return toDegrees(Math.acos(cosTheta));
 			}
+		}
+
+
+		// Calculating Directional Angles
+
+		public double[] directionalAngles(){
+			double mag = magnitude();
+			double[] angles = new double[3];	
+			if (mag== 0){
+				throw new IllegalArgumentException("Directional Angle undefined for zero vector");
+			} else {
+				double cosAlpha = this.x / mag;
+    				double cosBeta  = this.y / mag;
+    				double cosGamma = this.z / mag;
+				
+				  // Clamped each cosine value
+				cosAlpha = Math.max(-1.0, Math.min(1.0, cosAlpha));
+				cosBeta = Math.max(-1.0, Math.min(1.0, cosBeta));
+				cosGamma = Math.max(-1.0, Math.min(1.0, cosGamma));
+
+				// Calculating three angles
+				angles[0] = toDegrees(Math.acos(cosAlpha));
+				angles[1] = toDegrees(Math.acos(cosBeta));
+				angles[2] = toDegrees(Math.acos(cosGamma));
+
+				return angles;
+
+			}
+
 		}	
 		
 
